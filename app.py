@@ -13,7 +13,7 @@ ma = Marshmallow(app)
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     productTitle = db.Column(db.String(100), unique=False)
-    productPrice = db.Column(db.String(144), unique=False)
+    productPrice = db.Column(db.String(100), unique=False)
 
     def __init__(self, productTitle, productPrice):
         self.productTitle = productTitle
@@ -74,7 +74,7 @@ def product_delete(id):
     db.session.delete(product)
     db.session.commit()
 
-    return "product succesfully deleted"
+    return "product_schema.jsonify(product)"
 
 if __name__ == '__main__':
     app.run(debug=True)
